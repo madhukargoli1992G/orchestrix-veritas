@@ -1,5 +1,5 @@
-from lodestar_veritas.agents.ingestion_agent import IngestionAgent
-from lodestar_veritas.agents.retrieval_agent import RetrievalAgent
+from orchestrix_veritas.agents.ingestion_agent import IngestionAgent
+from orchestrix_veritas.agents.retrieval_agent import RetrievalAgent
 
 
 def test_retrieval_agent_retrieves_chunks(tmp_path):

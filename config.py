@@ -1,5 +1,5 @@
 """
-Global configuration for Lodestar Veritas.
+Global configuration for Orchestrix Veritas.
 
 Supports environment-variable overrides for production, Docker, and local development.
 """

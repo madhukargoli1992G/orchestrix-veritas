@@ -2,7 +2,7 @@ from pathlib import Path
 
 from pptx import Presentation
 
-from lodestar_veritas.parsers.ppt_parser import PPTParser
+from orchestrix_veritas.parsers.ppt_parser import PPTParser
 
 
 def test_ppt_parser_extracts_slide_text(tmp_path: Path):

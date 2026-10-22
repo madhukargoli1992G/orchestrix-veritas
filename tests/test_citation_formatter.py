@@ -1,4 +1,4 @@
-from lodestar_veritas.retrieval.citation_formatter import CitationFormatter
+from orchestrix_veritas.retrieval.citation_formatter import CitationFormatter
 
 
 def test_citation_formatter_formats_pdf_page_citation():

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import fitz
 
-from lodestar_veritas.agents.ingestion_agent import IngestionAgent
+from orchestrix_veritas.agents.ingestion_agent import IngestionAgent
 
 
 def test_ingestion_agent_creates_chunks_for_real_pdf(tmp_path: Path):

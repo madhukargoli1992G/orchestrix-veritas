@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.verification_agent import VerificationAgent
+from orchestrix_veritas.agents.verification_agent import VerificationAgent
 
 
 def test_verification_agent_passes_grounded_answer():

@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.parsing_agent import ParsingAgent
+from orchestrix_veritas.agents.parsing_agent import ParsingAgent
 
 
 def test_parsing_agent_returns_analysis_and_strategy_for_unknown_file():

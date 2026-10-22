@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.context_evaluator_agent import ContextEvaluatorAgent
+from orchestrix_veritas.agents.context_evaluator_agent import ContextEvaluatorAgent
 
 
 def test_context_evaluator_fails_when_no_chunks():

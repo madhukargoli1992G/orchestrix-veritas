@@ -1,9 +1,15 @@
+
+name: orchestrix-veritas
+
 services:
-  lodestar-veritas-api:
-    build: .
-    container_name: lodestar-veritas-api
+  orchestrix-veritas-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: orchestrix-veritas-api:latest
+    container_name: orchestrix-veritas-api
     ports:
       - "8000:8000"
     environment:
       - PYTHONPATH=/app
-    command: uvicorn lodestar_veritas.api.main:app --host 0.0.0.0 --port 8000
+    command: uvicorn orchestrix_veritas.api.main:app --host 0.0.0.0 --port 8000

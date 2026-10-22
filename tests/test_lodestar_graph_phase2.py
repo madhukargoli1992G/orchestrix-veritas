@@ -1,8 +1,8 @@
-from lodestar_veritas.graph import LodestarGraph
+from orchestrix_veritas.graph import OrchestrixGraph
 
 
-def test_lodestar_graph_has_phase2_nodes():
-    graph = LodestarGraph()
+def test_orchestrix_graph_has_phase2_nodes():
+    graph = OrchestrixGraph()
 
     assert hasattr(graph, "query_rewrite_agent")
     assert hasattr(graph, "context_evaluator_agent")
@@ -10,10 +10,10 @@ def test_lodestar_graph_has_phase2_nodes():
     assert hasattr(graph, "safe_response_formatter")
 
 
-def test_lodestar_graph_rewrite_query_node_updates_state():
-    graph = LodestarGraph()
+def test_orchestrix_graph_rewrite_query_node_updates_state():
+    graph = OrchestrixGraph()
 
-    from lodestar_veritas.state import RAGState
+    from orchestrix_veritas.state import RAGState
 
     state = RAGState(
         query="What increased in 2024?",
@@ -28,10 +28,10 @@ def test_lodestar_graph_rewrite_query_node_updates_state():
     assert "rewrite_query_node_completed" in result.events
 
 
-def test_lodestar_graph_context_evaluator_node_updates_state():
-    graph = LodestarGraph()
+def test_orchestrix_graph_context_evaluator_node_updates_state():
+    graph = OrchestrixGraph()
 
-    from lodestar_veritas.state import RAGState
+    from orchestrix_veritas.state import RAGState
 
     state = RAGState(
         query="What increased in 2024?",

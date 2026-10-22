@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from lodestar_veritas.api.main import app
+from orchestrix_veritas.api.main import app
 
 
 client = TestClient(app)
@@ -10,7 +10,7 @@ def test_api_root():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.json()["message"] == "Lodestar Veritas API is running."
+    assert response.json()["message"] == "Orchestrix Veritas API is running."
 
 
 def test_api_health():

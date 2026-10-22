@@ -1,6 +1,6 @@
-from lodestar_veritas.agents.chunking_agent import ChunkingAgent
-from lodestar_veritas.agents.content_analyzer_agent import ContentAnalyzerAgent
-from lodestar_veritas.agents.chunk_strategy_planner import ChunkStrategyPlanner
+from orchestrix_veritas.agents.chunking_agent import ChunkingAgent
+from orchestrix_veritas.agents.content_analyzer_agent import ContentAnalyzerAgent
+from orchestrix_veritas.agents.chunk_strategy_planner import ChunkStrategyPlanner
 
 
 def test_chunking_agent_chunks_parsed_content():

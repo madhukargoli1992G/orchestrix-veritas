@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from lodestar_veritas.graph import LodestarGraph
+from orchestrix_veritas.graph import OrchestrixGraph
 
 
-def test_lodestar_graph_runs_end_to_end(tmp_path: Path):
+def test_orchestrix_graph_runs_end_to_end(tmp_path: Path):
     sample_file = tmp_path / "sample.txt"
 
     sample_file.write_text(
@@ -13,7 +13,7 @@ def test_lodestar_graph_runs_end_to_end(tmp_path: Path):
         encoding="utf-8",
     )
 
-    graph = LodestarGraph()
+    graph = OrchestrixGraph()
 
     state = graph.run(
         query="What increased in 2024?",

@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.retrieval_router_agent import RetrievalRouterAgent
+from orchestrix_veritas.agents.retrieval_router_agent import RetrievalRouterAgent
 
 
 def test_retrieval_router_defaults_to_hybrid():

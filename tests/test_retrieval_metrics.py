@@ -1,4 +1,4 @@
-from lodestar_veritas.evaluation.retrieval_metrics import RetrievalMetrics
+from orchestrix_veritas.evaluation.retrieval_metrics import RetrievalMetrics
 
 
 def test_reciprocal_rank():

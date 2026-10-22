@@ -1,4 +1,4 @@
-from lodestar_veritas.embeddings.local_embedding_model import LocalEmbeddingModel
+from orchestrix_veritas.embeddings.local_embedding_model import LocalEmbeddingModel
 
 
 def test_local_embedding_model_returns_vector():

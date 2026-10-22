@@ -1,4 +1,4 @@
-from lodestar_veritas.guardrails.safe_response_formatter import SafeResponseFormatter
+from orchestrix_veritas.guardrails.safe_response_formatter import SafeResponseFormatter
 
 
 def test_safe_response_formatter_returns_safe_answer():

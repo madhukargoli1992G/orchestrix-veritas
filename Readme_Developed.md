@@ -1,6 +1,6 @@
-# Lodestar Veritas
+# Orchestrix Veritas
 
-Lodestar Veritas is an agentic multimodal RAG platform for financial, regulatory, and business documents.
+Orchestrix Veritas is an agentic multimodal RAG platform for financial, regulatory, and business documents.
 
 ## Features
 
@@ -240,7 +240,7 @@ Final Response
 ```
 # 🚀 Phase 2: Agentic RAG Workflow
 
-Phase 2 transforms **Lodestar Veritas** from a traditional Retrieval-Augmented Generation (RAG) pipeline into an **Agentic RAG workflow**.
+Phase 2 transforms **Orchestrix Veritas** from a traditional Retrieval-Augmented Generation (RAG) pipeline into an **Agentic RAG workflow**.
 
 Instead of performing a single retrieval followed by answer generation, the system now evaluates the retrieved context, rewrites the query when necessary, retries retrieval, verifies the generated answer, applies safety guardrails, and returns a structured, production-ready response.
 
@@ -353,7 +353,7 @@ Determines whether the retrieved document context is sufficient for answer gener
 
 ---
 
-## 🕸️ LodestarGraph
+## 🕸️ OrchestrixGraph
 
 The central workflow engine responsible for coordinating every stage of the Agentic RAG pipeline.
 
@@ -374,7 +374,7 @@ The central workflow engine responsible for coordinating every stage of the Agen
 
 ## 🔁 Retry Loop
 
-Unlike traditional one-shot RAG systems, Lodestar Veritas supports **automatic retrieval retries**.
+Unlike traditional one-shot RAG systems, Orchestrix Veritas supports **automatic retrieval retries**.
 
 When insufficient context is retrieved:
 
@@ -418,7 +418,7 @@ These events improve:
 
 # ⭐ Key Improvements Over Traditional RAG
 
-| Traditional RAG             | Lodestar Veritas Phase 2                            |
+| Traditional RAG             | Orchestrix Veritas Phase 2                            |
 | --------------------------- | --------------------------------------------------- |
 | Single retrieval attempt    | Multiple retrieval attempts with retry logic        |
 | Static user query           | Dynamic query rewriting                             |
@@ -432,7 +432,7 @@ These events improve:
 
 # 💼 Explanation
 
-Lodestar Veritas implements an **Agentic Retrieval-Augmented Generation (RAG)** architecture rather than a traditional linear RAG pipeline.
+Orchestrix Veritas implements an **Agentic Retrieval-Augmented Generation (RAG)** architecture rather than a traditional linear RAG pipeline.
 
 The system maintains a shared workflow state throughout execution. After retrieving document chunks, it evaluates whether the retrieved context is sufficient to answer the user's question. If the retrieved information is inadequate, the workflow automatically rewrites the query and performs another retrieval attempt.
 
@@ -454,3 +454,408 @@ This iterative workflow provides greater robustness, improved retrieval quality,
 * Guardrails for response safety
 * Safe API response formatting
 * Production-ready modular architecture
+
+## Architecture Diagram
+
+```mermaid
+
+flowchart TD
+
+    A[User Query] --> B[Query Guardrail Agent]
+    B --> C[Ingestion Agent]
+    C --> D[Query Rewrite Agent]
+    D --> E[Retrieval Router Agent]
+    E --> F[Retrieval Agent]
+    F --> G[Context Evaluator Agent]
+
+    G -->|Insufficient Context| D
+    G -->|Sufficient Context| H[Answer Generator Agent]
+
+    H --> I[Confidence Retry Agent]
+    I -->|Low Confidence| D
+    I -->|Acceptable Confidence| J[Verification Agent]
+
+    J --> K[Hallucination Checker]
+    K --> L[RAG Guardrails]
+    L --> M[Safe Response Formatter]
+    M --> N[Final Response]
+
+    
+```
+
+---
+
+## 3. Run final checks
+
+```bash
+
+pytest
+
+```
+Then run API:
+
+```bash
+
+uvicorn orchestrix_veritas.api.main:app --reload
+
+```
+Open:
+
+```bash
+
+http://127.0.0.1:8000/docs
+
+```
+
+## 📂 Project Structure
+
+```text
+orchestrix_veritas/
+│
+├── agents/
+│   ├── answer_generator_agent.py
+│   ├── confidence_retry_agent.py
+│   ├── context_evaluator_agent.py
+│   ├── guardrail_agent.py
+│   ├── ingestion_agent.py
+│   ├── metadata_agent.py
+│   ├── parsing_agent.py
+│   ├── query_rewrite_agent.py
+│   ├── retrieval_agent.py
+│   ├── retrieval_router_agent.py
+│   ├── verification_agent.py
+│   ├── document_intelligence_agent.py
+│   ├── embedding_agent.py
+│   ├── chunking_agent.py
+│   └── rag_orchestrator_agent.py
+│
+├── api/
+│   └── main.py
+│
+├── chunking/
+│   ├── page_aware_chunker.py
+│   ├── recursive_chunker.py
+│   ├── toc_chunker.py
+│   └── ...
+│
+├── embeddings/
+│   ├── local_embedding_model.py
+│   └── ...
+│
+├── evaluation/
+│   ├── retrieval_metrics.py
+│   └── ...
+│
+├── guardrails/
+│   ├── rag_guardrails.py
+│   └── safe_response_formatter.py
+│
+├── llm/
+│   ├── ollama_client.py
+│   └── prompt_builder.py
+│
+├── metadata/
+│
+├── models/
+│
+├── parsers/
+│   ├── csv_parser.py
+│   ├── docx_parser.py
+│   ├── image_parser.py
+│   ├── pdf_parser.py
+│   ├── ppt_parser.py
+│   ├── text_parser.py
+│   └── xlsx_parser.py
+│
+├── retrieval/
+│   ├── bm25_search.py
+│   ├── dense_search.py
+│   ├── hybrid_search.py
+│   ├── query_router.py
+│   ├── reranker.py
+│   ├── rrf.py
+│   └── ...
+│
+├── vectorstore/
+│   ├── in_memory_vector_store.py
+│   ├── qdrant_dense_search.py
+│   ├── qdrant_manager.py
+│   └── ...
+│
+├── verification/
+│   ├── answer_verifier.py
+│   ├── hallucination_checker.py
+│   └── faithfulness.py
+│
+├── tests/
+│   ├── test_answer_generator_agent.py
+│   ├── test_api_main.py
+│   ├── test_confidence_retry_agent.py
+│   ├── test_context_evaluator_agent.py
+│   ├── test_graph_retrieval_router.py
+│   ├── test_langgraph_build.py
+│   ├── test_query_rewrite_agent.py
+│   ├── test_rag_guardrails.py
+│   ├── test_verification_agent.py
+│   └── ... (80+ automated tests)
+│
+├── cli.py
+├── graph.py
+├── state.py
+├── document_detector.py
+├── config.py
+├── app.py
+├── requirements.txt
+├── Dockerfile
+└── README.md
+```
+
+---
+
+# 🚀 Running the Project
+
+## 1. Clone the Repository
+
+```bash
+
+git clone <repository-url>
+cd orchestrix-veritas
+
+```
+
+---
+
+## 2. Create a Virtual Environment
+
+### Windows
+
+```bash
+
+python -m venv .mvenv
+
+.mvenv\Scripts\activate
+
+```
+
+### macOS / Linux
+
+```bash
+
+python3 -m venv .mvenv
+source .mvenv/bin/activate
+
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+
+pip install -r requirements.txt
+
+```
+
+---
+
+## 4. Run All Tests
+
+```bash
+
+pytest
+
+```
+
+Expected output:
+
+```text
+
+87+ tests passed
+
+```
+
+---
+
+## 5. Run the CLI Application
+
+```bash
+python -m orchestrix_veritas.cli
+```
+
+Example:
+
+```text
+
+======================================================================
+            Orchestrix Veritas - Agentic RAG CLI
+======================================================================
+
+Ask a question:
+> What increased in 2024?
+
+Answer:
+Revenue increased by 25% in 2024.
+
+Sources:
+sample.txt
+
+Confidence:
+0.95
+
+Verification:
+Passed
+
+Workflow Events:
+workflow_started
+guardrail_node_completed
+retrieve_node_completed
+...
+```
+
+---
+
+## 6. Run the FastAPI Server
+
+```bash
+uvicorn orchestrix_veritas.api.main:app --reload
+```
+
+API documentation is available at:
+
+```text
+
+http://127.0.0.1:8000/docs
+
+```
+
+---
+
+# 🌟 Current v1.0 Features
+
+## 📄 Document Processing
+
+* Multi-format document ingestion
+* Automatic document type detection
+* Metadata extraction
+* PDF parsing
+* DOCX parsing
+* PPTX parsing
+* CSV parsing
+* XLSX parsing
+* Image parsing
+* Plain text parsing
+
+---
+
+## ✂️ Intelligent Chunking
+
+* Recursive chunking
+* TOC-aware chunking
+* Page-aware chunking
+* Metadata-aware chunking
+* Hierarchical chunk preparation
+
+---
+
+## 🧠 Embeddings & Vector Search
+
+* Local embedding generation
+* In-memory vector store
+* Qdrant integration
+* Dense vector retrieval
+
+---
+
+## 🔍 Retrieval Techniques
+
+* Dense Retrieval
+* BM25 Retrieval
+* Hybrid Retrieval
+* Reciprocal Rank Fusion (RRF)
+* Reranking
+* Retrieval Router
+* Query Rewriting
+* Context Evaluation
+
+---
+
+## 🤖 Agentic Workflow
+
+* Query Guardrails
+* Query Rewrite Agent
+* Retrieval Router Agent
+* Retrieval Agent
+* Context Evaluator Agent
+* Confidence Retry Agent
+* Answer Generator Agent
+* Verification Agent
+* Hallucination Checker
+* RAG Guardrails
+* Safe Response Formatter
+* LangGraph-compatible Workflow
+* Shared Workflow State Management
+
+---
+
+## 📊 Response Quality
+
+* Confidence estimation
+* Citation generation
+* Source attribution
+* Grounded answer verification
+* Hallucination detection
+* Safe response validation
+
+---
+
+## 🖥️ Interfaces
+
+* Interactive CLI
+* FastAPI REST API
+* Swagger UI
+* Docker support
+
+---
+
+## 🧪 Testing
+
+* Comprehensive automated test suite
+* Agent-level unit tests
+* Retrieval tests
+* Verification tests
+* Graph workflow tests
+* API endpoint tests
+* CLI tests
+
+---
+
+# 🎯 Version Summary
+
+| Category                 | Status      |
+| ------------------------ | ----------- |
+| Agentic Workflow         | ✅           |
+| LangGraph-Compatible     | ✅           |
+| Multi-Parser Support     | ✅           |
+| Hybrid Retrieval         | ✅           |
+| Query Rewriting          | ✅           |
+| Retrieval Routing        | ✅           |
+| Context Evaluation       | ✅           |
+| Retry Logic              | ✅           |
+| Verification             | ✅           |
+| Hallucination Detection  | ✅           |
+| RAG Guardrails           | ✅           |
+| Safe Response Formatting | ✅           |
+| FastAPI                  | ✅           |
+| CLI                      | ✅           |
+| Docker                   | ✅           |
+| Automated Testing        | ✅ 87+ Tests |
+| Production Ready         | ✅           |
+
+---
+
+# 🏆 Project Status
+
+**Orchestrix Veritas v1.0** is a production-style, modular Agentic Retrieval-Augmented Generation (RAG) platform designed for financial and regulatory document intelligence.
+
+The project combines modern RAG techniques with an agent-based workflow, incorporating query rewriting, intelligent retrieval routing, context evaluation, confidence-based retry logic, answer verification, hallucination detection, safety guardrails, and LangGraph-compatible orchestration. It is packaged with an interactive CLI, REST API, automated testing, and Docker support, making it suitable as both a portfolio project and a foundation for enterprise AI applications.
+

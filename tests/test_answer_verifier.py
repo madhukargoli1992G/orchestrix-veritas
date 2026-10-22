@@ -1,4 +1,4 @@
-from lodestar_veritas.verification.answer_verifier import AnswerVerifier
+from orchestrix_veritas.verification.answer_verifier import AnswerVerifier
 
 
 def test_answer_verifier_passes_valid_answer():

@@ -1,5 +1,5 @@
-from lodestar_veritas.agents.embedding_agent import EmbeddingAgent
-from lodestar_veritas.chunking.chunk_models import DocumentChunk
+from orchestrix_veritas.agents.embedding_agent import EmbeddingAgent
+from orchestrix_veritas.chunking.chunk_models import DocumentChunk
 
 
 def test_embedding_agent_embeds_chunks():

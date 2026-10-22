@@ -1,15 +1,15 @@
-from lodestar_veritas.graph import LodestarGraph
+from orchestrix_veritas.graph import OrchestrixGraph
 
 
-def test_lodestar_graph_exposes_langgraph_builder():
-    graph = LodestarGraph()
+def test_orchestrix_graph_exposes_langgraph_builder():
+    graph = OrchestrixGraph()
 
     assert hasattr(graph, "build_langgraph")
     assert callable(graph.build_langgraph)
 
 
-def test_lodestar_graph_langgraph_builder_is_safe_without_dependency():
-    graph = LodestarGraph()
+def test_orchestrix_graph_langgraph_builder_is_safe_without_dependency():
+    graph = OrchestrixGraph()
 
     compiled_graph = graph.build_langgraph()
 
