@@ -20,7 +20,7 @@ def html(markup: str) -> None:
 
 
 st.set_page_config(
-    page_title="Lodestar Veritas",
+    page_title="Orchestrix Veritas",
     page_icon="🌌",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -78,7 +78,7 @@ html, body, [class*="css"] {
 }
 
 .logo-compass::before {
-    content: "✦";
+    content: "⬡";
     font-size: 5.1rem;
     line-height: 1;
     color: #dbeafe;
@@ -504,9 +504,9 @@ html("""
     <div class="hero-row">
         <div class="logo-compass"></div>
         <div>
-            <div class="hero-title">Lodestar Veritas</div>
+            <div class="hero-title">Orchestrix Veritas</div>
             <div class="hero-subtitle">
-                Agentic multimodal RAG platform for financial, regulatory, and business documents.
+                Advanced Multimodal Agentic RAG Platform for document understanding, retrieval, reasoning, and verification.
             </div>
         </div>
     </div>
@@ -588,7 +588,7 @@ with left_col:
         label_visibility="collapsed",
     )
 
-    run_button = st.button("🚀 Run LodeStar Veritas Agentic RAG Pipeline")
+    run_button = st.button("🚀 Run Orchestrix Veritas Agentic RAG Pipeline")
     html("</div>")
 
 with right_col:
@@ -722,7 +722,7 @@ if run_button:
                 temp_file.write(uploaded_file.getbuffer())
                 temp_paths.append(temp_file.name)
 
-    with st.spinner("Running Lodestar Veritas intelligence pipeline..."):
+    with st.spinner("Running Orchestrix Veritas agentic pipeline..."):
         graph = LodestarGraph()
         state = graph.run(query=query, file_paths=temp_paths)
 
