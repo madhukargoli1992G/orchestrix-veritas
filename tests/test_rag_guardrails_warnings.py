@@ -1,4 +1,4 @@
-from lodestar_veritas.guardrails.rag_guardrails import RAGGuardrails
+from orchestrix_veritas.guardrails.rag_guardrails import RAGGuardrails
 
 
 def test_guardrails_warn_when_verification_fails():

@@ -1,4 +1,4 @@
-from lodestar_veritas.vectorstore.in_memory_vector_store import InMemoryVectorStore
+from orchestrix_veritas.vectorstore.in_memory_vector_store import InMemoryVectorStore
 
 
 def test_in_memory_vector_store_adds_items():

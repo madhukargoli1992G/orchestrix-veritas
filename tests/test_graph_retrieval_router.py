@@ -1,9 +1,9 @@
-from lodestar_veritas.graph import LodestarGraph
-from lodestar_veritas.state import RAGState
+from orchestrix_veritas.graph import OrchestrixGraph
+from orchestrix_veritas.state import RAGState
 
 
 def test_graph_retrieval_router_node_defaults_to_hybrid():
-    graph = LodestarGraph()
+    graph = OrchestrixGraph()
 
     state = RAGState(
         query="What increased in 2024?",
@@ -18,7 +18,7 @@ def test_graph_retrieval_router_node_defaults_to_hybrid():
 
 
 def test_graph_retrieval_router_detects_keyword():
-    graph = LodestarGraph()
+    graph = OrchestrixGraph()
 
     state = RAGState(
         query="Find the exact revenue amount",
@@ -31,7 +31,7 @@ def test_graph_retrieval_router_detects_keyword():
 
 
 def test_graph_retrieval_router_detects_semantic():
-    graph = LodestarGraph()
+    graph = OrchestrixGraph()
 
     state = RAGState(
         query="Explain the financial risks",
@@ -44,7 +44,7 @@ def test_graph_retrieval_router_detects_semantic():
 
 
 def test_graph_retrieval_router_detects_metadata():
-    graph = LodestarGraph()
+    graph = OrchestrixGraph()
 
     state = RAGState(
         query="What is on page 12?",

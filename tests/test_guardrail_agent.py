@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.guardrail_agent import GuardrailAgent
+from orchestrix_veritas.agents.guardrail_agent import GuardrailAgent
 
 
 def test_guardrail_agent_allows_normal_query():

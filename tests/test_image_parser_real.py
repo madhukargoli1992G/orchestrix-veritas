@@ -2,7 +2,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from lodestar_veritas.parsers.image_parser import ImageParser
+from orchestrix_veritas.parsers.image_parser import ImageParser
 
 
 def test_image_parser_extracts_metadata(tmp_path: Path):

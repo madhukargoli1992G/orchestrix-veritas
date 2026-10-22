@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from lodestar_veritas.agents.ingestion_agent import IngestionAgent
+from orchestrix_veritas.agents.ingestion_agent import IngestionAgent
 
 
 def test_ingestion_agent_embeds_text_chunks(tmp_path: Path):

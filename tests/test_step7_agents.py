@@ -1,5 +1,5 @@
-from lodestar_veritas.agents.content_analyzer_agent import ContentAnalyzerAgent
-from lodestar_veritas.agents.chunk_strategy_planner import ChunkStrategyPlanner
+from orchestrix_veritas.agents.content_analyzer_agent import ContentAnalyzerAgent
+from orchestrix_veritas.agents.chunk_strategy_planner import ChunkStrategyPlanner
 
 
 def test_content_analyzer_for_pdf():

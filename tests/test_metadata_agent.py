@@ -1,5 +1,5 @@
-from lodestar_veritas.agents.metadata_agent import MetadataAgent
-from lodestar_veritas.chunking.chunk_models import DocumentChunk
+from orchestrix_veritas.agents.metadata_agent import MetadataAgent
+from orchestrix_veritas.chunking.chunk_models import DocumentChunk
 
 
 def test_metadata_agent_enriches_chunk_metadata():

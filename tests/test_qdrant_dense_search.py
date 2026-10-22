@@ -1,11 +1,11 @@
-from lodestar_veritas.retrieval.qdrant_dense_search import QdrantDenseSearch
+from orchestrix_veritas.retrieval.qdrant_dense_search import QdrantDenseSearch
 
 
 def test_qdrant_dense_search_returns_results(tmp_path, monkeypatch):
     search = QdrantDenseSearch()
 
     search.qdrant.client.close()
-    from lodestar_veritas.vectorstore.qdrant_manager import QdrantManager
+    from orchestrix_veritas.vectorstore.qdrant_manager import QdrantManager
 
     search.qdrant = QdrantManager(
         collection_name="test_qdrant_dense_search",

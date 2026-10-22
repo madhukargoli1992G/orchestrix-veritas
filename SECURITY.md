@@ -20,4 +20,4 @@ We will investigate and respond as quickly as possible.
 | 1.x            | ✅         |
 | Older Versions | ❌         |
 
-Thank you for helping keep Lodestar Veritas secure.
+Thank you for helping keep Orchestrix Veritas secure.

@@ -1,10 +1,10 @@
-# Lodestar Veritas
+# Orchestrix Veritas
 
 ## Agentic Multimodal RAG Platform for Financial & Regulatory Intelligence
 
-Lodestar Veritas is an enterprise-style Agentic AI platform designed to process large-scale financial and regulatory documents with high accuracy while minimizing hallucinations.
+Orchestrix Veritas is an enterprise-style Agentic AI platform designed to process large-scale financial and regulatory documents with high accuracy while minimizing hallucinations.
 
-Unlike traditional RAG systems, Lodestar Veritas intelligently detects document types, applies adaptive chunking strategies, performs hybrid retrieval, reranks evidence, validates generated answers, and enforces guardrails before presenting responses.
+Unlike traditional RAG systems, Orchestrix Veritas intelligently detects document types, applies adaptive chunking strategies, performs hybrid retrieval, reranks evidence, validates generated answers, and enforces guardrails before presenting responses.
 
 ---
 

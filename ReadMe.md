@@ -1,6 +1,6 @@
 
 ────────────────────────────────────────────────────────
-#                 🌌LODESTAR VERITAS
+#                 🌌ORCHESTRIX VERITAS
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Enabled-009688?logo=fastapi)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker)
@@ -29,9 +29,9 @@ Verification • Guardrails • FastAPI • Docker
 
 ## 🌟 Overview
 
-Lodestar Veritas is a modular, production-style Agentic AI system designed to answer questions from complex business documents while minimizing hallucinations through grounded retrieval and verification.
+Orchestrix Veritas is a modular, production-style Agentic AI system designed to answer questions from complex business documents while minimizing hallucinations through grounded retrieval and verification.
 
-Unlike traditional RAG pipelines, Lodestar Veritas incorporates multiple intelligent agents responsible for ingestion, retrieval, query rewriting, answer generation, verification, hallucination detection, and response safety.
+Unlike traditional RAG pipelines, Orchestrix Veritas incorporates multiple intelligent agents responsible for ingestion, retrieval, query rewriting, answer generation, verification, hallucination detection, and response safety.
 
 The project demonstrates production-oriented AI engineering practices including:
 
@@ -84,9 +84,9 @@ The project demonstrates production-oriented AI engineering practices including:
 ## 📁 Project Structure
 
 ```text
-lodestar-veritas/
+orchestrix-veritas/
 │
-├── lodestar_veritas/
+├── orchestrix_veritas/
 │   ├── agents/                 # Intelligent RAG agents
 │   ├── api/                    # FastAPI application
 │   ├── chunking/               # Chunking strategies
@@ -117,7 +117,7 @@ lodestar-veritas/
 
 # 🏗️ Architecture
 
-Lodestar Veritas follows a modular Agentic RAG architecture inspired by production AI systems.
+Orchestrix Veritas follows a modular Agentic RAG architecture inspired by production AI systems.
 
 Each responsibility is isolated into a dedicated component, making the system easier to maintain, extend, and test.
 
@@ -290,7 +290,7 @@ Otherwise, the workflow produces a safe fallback response indicating insufficien
 
 # 🧠 Agent Responsibilities
 
-Lodestar Veritas is built using a modular agent-based architecture. Each agent performs a single responsibility and communicates through a shared `RAGState`, making the workflow maintainable, extensible, and production-friendly.
+Orchestrix Veritas is built using a modular agent-based architecture. Each agent performs a single responsibility and communicates through a shared `RAGState`, making the workflow maintainable, extensible, and production-friendly.
 
 | Agent                        | Responsibility                                                                           | Input               | Output                      |
 | ---------------------------- | ---------------------------------------------------------------------------------------- | ------------------- | --------------------------- |
@@ -339,7 +339,7 @@ Using a shared state object allows every agent to contribute information without
 
 # 🔍 Hybrid Retrieval Pipeline
 
-Lodestar Veritas uses a **Hybrid Retrieval** architecture that combines semantic search with traditional keyword search to maximize retrieval accuracy and reduce hallucinations.
+Orchestrix Veritas uses a **Hybrid Retrieval** architecture that combines semantic search with traditional keyword search to maximize retrieval accuracy and reduce hallucinations.
 
 Unlike basic RAG systems that rely only on vector similarity, this project fuses multiple retrieval strategies before generating an answer.
 
@@ -433,7 +433,7 @@ Semantic retrieval may not rank this highly, while BM25 immediately identifies t
 
 ## Reciprocal Rank Fusion (RRF)
 
-Instead of choosing between semantic retrieval and keyword retrieval, Lodestar Veritas combines both ranking lists using **Reciprocal Rank Fusion (RRF)**.
+Instead of choosing between semantic retrieval and keyword retrieval, Orchestrix Veritas combines both ranking lists using **Reciprocal Rank Fusion (RRF)**.
 
 RRF assigns higher scores to chunks that consistently rank well across multiple retrieval methods.
 
@@ -495,7 +495,7 @@ Hybrid Retrieval combines both approaches to provide:
 
 # 🛡️ Guardrails & Safety
 
-Lodestar Veritas incorporates multiple layers of validation and safety checks throughout the retrieval and generation pipeline.
+Orchestrix Veritas incorporates multiple layers of validation and safety checks throughout the retrieval and generation pipeline.
 
 Rather than relying solely on an LLM, the system evaluates the quality of both the input query and the generated response before returning results to the user.
 
@@ -641,7 +641,7 @@ This retry mechanism increases the likelihood of producing grounded, evidence-ba
 
 Many traditional Retrieval-Augmented Generation (RAG) systems generate responses immediately after retrieval.
 
-Lodestar Veritas introduces additional validation layers to ensure that responses are:
+Orchestrix Veritas introduces additional validation layers to ensure that responses are:
 
 * Grounded
 * Explainable
@@ -655,7 +655,7 @@ These verification and guardrail mechanisms help improve response reliability wh
 
 ## Prerequisites
 
-Before running Lodestar Veritas, ensure the following software is installed:
+Before running Orchestrix Veritas, ensure the following software is installed:
 
 | Software       | Version |
 | -------------- | ------- |
@@ -670,9 +670,9 @@ Before running Lodestar Veritas, ensure the following software is installed:
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/<your-github-username>/lodestar-veritas.git
+git clone https://github.com/<your-github-username>/orchestrix-veritas.git
 
-cd lodestar-veritas
+cd orchestrix-veritas
 ```
 
 ---
@@ -763,7 +763,7 @@ http://localhost:8000/health
 Start the FastAPI server:
 
 ```bash
-uvicorn lodestar_veritas.api.main:app --reload
+uvicorn orchestrix_veritas.api.main:app --reload
 ```
 
 ---
@@ -771,7 +771,7 @@ uvicorn lodestar_veritas.api.main:app --reload
 Run the interactive CLI:
 
 ```bash
-python -m lodestar_veritas.cli
+python -m orchestrix_veritas.cli
 ```
 
 ---
@@ -788,7 +788,7 @@ Example Response
 
 ```json
 {
-    "message": "Lodestar Veritas API is running.",
+    "message": "Orchestrix Veritas API is running.",
     "version": "1.0.0",
     "docs": "/docs",
     "health": "/health"
@@ -808,7 +808,7 @@ Response
 ```json
 {
     "status": "healthy",
-    "service": "lodestar-veritas-api",
+    "service": "orchestrix-veritas-api",
     "version": "1.0.0"
 }
 ```
@@ -826,7 +826,7 @@ Response
 ```json
 {
     "version": "1.0.0",
-    "name": "Lodestar Veritas",
+    "name": "Orchestrix Veritas",
     "type": "Agentic Multimodal RAG Platform"
 }
 ```
@@ -871,14 +871,14 @@ Example Response
 Start the CLI:
 
 ```bash
-python -m lodestar_veritas.cli
+python -m orchestrix_veritas.cli
 ```
 
 Example:
 
 ```text
 ========================================================
-            Lodestar Veritas - Agentic RAG CLI
+            Orchestrix Veritas - Agentic RAG CLI
 ========================================================
 
 Ask a question:
@@ -906,7 +906,7 @@ Workflow Events
 ```
 # 🧪 Testing & Project Quality
 
-Lodestar Veritas follows a test-driven, production-oriented development approach.
+Orchestrix Veritas follows a test-driven, production-oriented development approach.
 
 Every major workflow component is validated through automated unit and integration tests to ensure correctness, maintainability, and long-term reliability.
 
@@ -1021,7 +1021,7 @@ The automated test suite validates:
 
 # ⚙️ Production-Oriented Design
 
-Lodestar Veritas was designed using software engineering principles commonly adopted in enterprise AI systems.
+Orchestrix Veritas was designed using software engineering principles commonly adopted in enterprise AI systems.
 
 ### Design Goals
 
@@ -1120,7 +1120,7 @@ See the `LICENSE` file for details.
 
 # 🙏 Acknowledgements
 
-Lodestar Veritas was developed as a production-style Agentic AI portfolio project demonstrating modern Retrieval-Augmented Generation (RAG) techniques, hybrid retrieval, workflow orchestration, verification, and AI safety practices.
+Orchestrix Veritas was developed as a production-style Agentic AI portfolio project demonstrating modern Retrieval-Augmented Generation (RAG) techniques, hybrid retrieval, workflow orchestration, verification, and AI safety practices.
 
 The project draws inspiration from the broader open-source AI ecosystem, including LangGraph, LangChain, FastAPI, Ollama, Qdrant, SentenceTransformers, and the Python community.
 

@@ -1,4 +1,4 @@
-from lodestar_veritas.verification.hallucination_checker import HallucinationChecker
+from orchestrix_veritas.verification.hallucination_checker import HallucinationChecker
 
 
 def test_hallucination_checker_passes_supported_answer():

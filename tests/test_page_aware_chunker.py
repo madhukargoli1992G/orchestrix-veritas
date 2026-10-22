@@ -1,5 +1,5 @@
-from lodestar_veritas.chunking.page_aware_chunker import PageAwareChunker
-from lodestar_veritas.agents.chunk_strategy_planner import ChunkStrategy
+from orchestrix_veritas.chunking.page_aware_chunker import PageAwareChunker
+from orchestrix_veritas.agents.chunk_strategy_planner import ChunkStrategy
 
 
 def test_page_aware_chunker_preserves_pdf_page_number():

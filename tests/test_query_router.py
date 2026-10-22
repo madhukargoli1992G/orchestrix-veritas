@@ -1,4 +1,4 @@
-from lodestar_veritas.retrieval.query_router import QueryRouter
+from orchestrix_veritas.retrieval.query_router import QueryRouter
 
 
 def test_query_router_returns_hybrid_for_financial_question():

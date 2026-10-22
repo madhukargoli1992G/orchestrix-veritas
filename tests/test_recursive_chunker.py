@@ -1,4 +1,4 @@
-from lodestar_veritas.chunking.recursive_chunker import RecursiveChunker
+from orchestrix_veritas.chunking.recursive_chunker import RecursiveChunker
 
 
 def test_recursive_chunker_creates_chunks():

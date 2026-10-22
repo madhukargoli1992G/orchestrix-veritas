@@ -1,4 +1,4 @@
-from lodestar_veritas.vectorstore.qdrant_manager import QdrantManager
+from orchestrix_veritas.vectorstore.qdrant_manager import QdrantManager
 
 
 def test_qdrant_manager_adds_and_searches_chunks(tmp_path):

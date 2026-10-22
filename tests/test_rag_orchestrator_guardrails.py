@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.rag_orchestrator_agent import RAGOrchestratorAgent
+from orchestrix_veritas.agents.rag_orchestrator_agent import RAGOrchestratorAgent
 
 
 def test_rag_orchestrator_returns_guardrails():

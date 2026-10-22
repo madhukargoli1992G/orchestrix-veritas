@@ -1,4 +1,4 @@
-from lodestar_veritas import cli
+from orchestrix_veritas import cli
 
 
 def test_cli_has_main():

@@ -2,7 +2,7 @@ from pathlib import Path
 
 from docx import Document
 
-from lodestar_veritas.parsers.docx_parser import DOCXParser
+from orchestrix_veritas.parsers.docx_parser import DOCXParser
 
 
 def test_docx_parser_extracts_paragraphs_and_tables(tmp_path: Path):

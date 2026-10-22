@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.answer_generator_agent import AnswerGeneratorAgent
+from orchestrix_veritas.agents.answer_generator_agent import AnswerGeneratorAgent
 
 
 def test_answer_generator_uses_retrieved_chunks():

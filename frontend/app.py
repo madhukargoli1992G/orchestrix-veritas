@@ -10,7 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from lodestar_veritas.graph import LodestarGraph
+from orchestrix_veritas.graph import OrchestrixGraph
 
 
 
@@ -723,7 +723,7 @@ if run_button:
                 temp_paths.append(temp_file.name)
 
     with st.spinner("Running Orchestrix Veritas agentic pipeline..."):
-        graph = LodestarGraph()
+        graph = OrchestrixGraph()
         state = graph.run(query=query, file_paths=temp_paths)
 
     st.markdown("---")

@@ -1,8 +1,8 @@
-from lodestar_veritas.graph import LodestarGraph
+from orchestrix_veritas.graph import OrchestrixGraph
 
 
-def test_lodestar_graph_runs_phase2_flow_with_no_files():
-    graph = LodestarGraph()
+def test_orchestrix_graph_runs_phase2_flow_with_no_files():
+    graph = OrchestrixGraph()
 
     state = graph.run(
         query="What increased in 2024?",
@@ -22,8 +22,8 @@ def test_lodestar_graph_runs_phase2_flow_with_no_files():
     assert isinstance(state.final_response, dict)
 
 
-def test_lodestar_graph_tracks_retry_events_when_context_missing():
-    graph = LodestarGraph()
+def test_orchestrix_graph_tracks_retry_events_when_context_missing():
+    graph = OrchestrixGraph()
 
     state = graph.run(
         query="What increased in 2024?",

@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to Lodestar Veritas.
+Thank you for your interest in contributing to Orchestrix Veritas.
 
 ## Getting Started
 
@@ -40,4 +40,4 @@ git push origin feature/my-feature
 * Update documentation when necessary.
 * Keep pull requests focused and concise.
 
-Thank you for helping improve Lodestar Veritas.
+Thank you for helping improve Orchestrix Veritas.

@@ -2,10 +2,10 @@
 Basic tests for document detection and the Document Intelligence Agent.
 """
 
-from lodestar_veritas.agents.document_intelligence_agent import (
+from orchestrix_veritas.agents.document_intelligence_agent import (
     document_intelligence_agent,
 )
-from lodestar_veritas.document_detector import detect_file_type
+from orchestrix_veritas.document_detector import detect_file_type
 
 
 def test_detect_pdf_type():

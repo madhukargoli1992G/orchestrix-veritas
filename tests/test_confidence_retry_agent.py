@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.confidence_retry_agent import ConfidenceRetryAgent
+from orchestrix_veritas.agents.confidence_retry_agent import ConfidenceRetryAgent
 
 
 def test_confidence_retry_agent_retries_low_confidence():

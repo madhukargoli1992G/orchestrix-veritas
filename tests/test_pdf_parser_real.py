@@ -2,7 +2,7 @@ from pathlib import Path
 
 import fitz
 
-from lodestar_veritas.parsers.pdf_parser import PDFParser
+from orchestrix_veritas.parsers.pdf_parser import PDFParser
 
 
 def test_pdf_parser_extracts_text(tmp_path: Path):

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from lodestar_veritas.parsers.csv_parser import CSVParser
+from orchestrix_veritas.parsers.csv_parser import CSVParser
 
 
 def test_csv_parser_extracts_rows_and_columns(tmp_path: Path):

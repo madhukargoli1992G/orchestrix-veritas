@@ -1,4 +1,4 @@
-from lodestar_veritas.agents.query_rewrite_agent import QueryRewriteAgent
+from orchestrix_veritas.agents.query_rewrite_agent import QueryRewriteAgent
 
 
 def test_query_rewrite_agent_returns_original_query_on_first_attempt():
