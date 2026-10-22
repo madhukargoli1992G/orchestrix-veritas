@@ -1,47 +1,50 @@
+# Orchestrix Veritas
 
-────────────────────────────────────────────────────────
-#                 🌌ORCHESTRIX VERITAS
+**Advanced Multimodal Agentic RAG Platform**
+
+An independent, enterprise-inspired AI engineering project for multimodal document understanding, agent-orchestrated retrieval and reasoning, evidence-grounded answers, and verification.
+
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Enabled-009688?logo=fastapi)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Compatible-success)
 ![Qdrant](https://img.shields.io/badge/Qdrant-VectorDB-red)
 ![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-black)
-![Tests](https://img.shields.io/badge/Tests-90%2B%20Passing-success)
+![Tests](https://img.shields.io/badge/Tests-92%20Passing-success)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Hybrid Retrieval • LangGraph • Ollama • Qdrant
-Verification • Guardrails • FastAPI • Docker
+**Hybrid Retrieval • RRF • Reranking • LangGraph • Ollama • Qdrant • Verification • Guardrails • FastAPI • Docker**
 
+## Application preview
 
-────────────────────────────────────────────────────────
+![Orchestrix Veritas Streamlit frontend](docs/orchestrix-veritas-frontend.png)
 
-
-
-> **Production-Style Agentic Multimodal Retrieval-Augmented Generation (RAG) Platform**
->
-> An enterprise-inspired AI platform for financial and regulatory document intelligence, combining hybrid retrieval, LangGraph-style orchestration, verification, guardrails, and local LLM inference.
+*The screenshot shows the document upload interface and the 11-stage pipeline visualization. It is not evidence of a complete deployed production system.*
 
 ---
 
-
-
-
 ## 🌟 Overview
 
-Orchestrix Veritas is a modular, production-style Agentic AI system designed to answer questions from complex business documents while minimizing hallucinations through grounded retrieval and verification.
+Orchestrix Veritas is a modular, production-style Agentic AI system designed to answer questions from complex multimodal documents while minimizing hallucinations through grounded retrieval and verification.
 
 Unlike traditional RAG pipelines, Orchestrix Veritas incorporates multiple intelligent agents responsible for ingestion, retrieval, query rewriting, answer generation, verification, hallucination detection, and response safety.
 
 The project demonstrates production-oriented AI engineering practices including:
 
 - Hybrid Retrieval (Dense + BM25 + RRF)
+
 - LangGraph-style workflow orchestration
+
 - Local LLM inference using Ollama
+
 - Verification and hallucination detection
+
 - Query rewriting and retry logic
+
 - FastAPI REST API
+
 - Docker deployment
+
 - Comprehensive automated testing
 
 # ✨ Features
@@ -63,7 +66,7 @@ The project demonstrates production-oriented AI engineering practices including:
 | 🖥️ CLI | Interactive command-line interface |
 | 🐳 Deployment | Docker & Docker Compose |
 | 📊 Logging | Structured application logging |
-| 🧪 Testing | 90+ automated pytest cases |
+| 🧪 Testing | 92 passing automated pytest tests (last verified locally) |
 
 # 🛠️ Technology Stack
 
@@ -80,7 +83,6 @@ The project demonstrates production-oriented AI engineering practices including:
 | Testing | Pytest |
 | Logging | Python Logging |
 
-
 ## 📁 Project Structure
 
 ```text
@@ -93,7 +95,6 @@ orchestrix-veritas/
 │   ├── embeddings/             # Embedding generation
 │   ├── evaluation/             # Context evaluation
 │   ├── guardrails/             # Query safety & validation
-│   ├── ingestion/              # Document ingestion
 │   ├── llm/                    # Ollama integration
 │   ├── parsers/                # PDF, DOCX, CSV, Image parsers
 │   ├── retrieval/              # Hybrid retrieval pipeline
@@ -126,47 +127,35 @@ The workflow is orchestrated through a LangGraph-style state machine where every
 This design enables:
 
 * Modular development
+
 * Independent testing of each agent
+
 * Retry and recovery mechanisms
+
 * Easier debugging
+
 * Production-oriented scalability
 
 # 🤖 Agent Workflow
+
 ```mermaid
 flowchart TD
-
 A[User Query]
-
 B[Guardrail Agent]
-
 C[Document Detection]
-
 D[Document Parsing]
-
 E[Metadata Extraction]
-
 F[Chunking]
-
 G[Embedding Generation]
-
 H[Qdrant Vector Store]
-
 I[Hybrid Retrieval<br/>Dense + BM25 + RRF]
-
 J[Context Evaluation]
-
 K[Answer Generation]
-
 L[Verification]
-
 M[Hallucination Check]
-
 N[Confidence Retry]
-
 O[Safe Response Formatter]
-
 P[API / CLI Response]
-
 A --> B
 B --> C
 C --> D
@@ -179,13 +168,12 @@ I --> J
 J --> K
 K --> L
 L --> M
-
 M -->|Low Confidence| N
 N --> I
-
 M -->|Verified| O
 O --> P
 ```
+
 ---
 
 ## Workflow Overview
@@ -195,19 +183,25 @@ The complete Agentic RAG workflow consists of multiple independent agents that c
 ### Step 1 — Guardrails
 
 * Validate the incoming user query.
+
 * Block unsafe or unsupported requests.
+
 * Prevent invalid workflow execution.
 
 ### Step 2 — Document Detection
 
 * Detect document type automatically.
+
 * Route files to the correct parser.
+
 * Support PDF, DOCX, PPTX, CSV, XLSX, TXT, and images.
 
 ### Step 3 — Parsing
 
 * Extract text from the uploaded documents.
+
 * Preserve formatting whenever possible.
+
 * Normalize content into a common structure.
 
 ### Step 4 — Metadata Extraction
@@ -215,26 +209,35 @@ The complete Agentic RAG workflow consists of multiple independent agents that c
 * Generate metadata such as:
 
   * document name
+
   * page number
+
   * section title
+
   * headings
+
   * chunk identifiers
 
 ### Step 5 — Chunking
 
 * Split documents into meaningful chunks.
+
 * Preserve semantic boundaries.
+
 * Maintain chunk overlap for retrieval quality.
 
 ### Step 6 — Embedding Generation
 
 * Convert text chunks into dense vector embeddings.
+
 * Use SentenceTransformers (all-MiniLM-L6-v2).
+
 * Produce 384-dimensional embeddings.
 
 ### Step 7 — Vector Storage
 
 * Store embeddings inside Qdrant.
+
 * Associate vectors with metadata for retrieval.
 
 ### Step 8 — Hybrid Retrieval
@@ -242,7 +245,9 @@ The complete Agentic RAG workflow consists of multiple independent agents that c
 The retrieval pipeline combines multiple retrieval techniques:
 
 * Dense semantic retrieval
+
 * BM25 keyword retrieval
+
 * Reciprocal Rank Fusion (RRF)
 
 This provides significantly better recall than using semantic search alone.
@@ -250,18 +255,23 @@ This provides significantly better recall than using semantic search alone.
 ### Step 9 — Context Evaluation
 
 * Evaluate whether sufficient context was retrieved.
+
 * Trigger retries when confidence is low.
 
 ### Step 10 — Answer Generation
 
 * Build prompts using retrieved context.
+
 * Generate grounded answers with Ollama.
+
 * Fall back to retrieved context if the LLM is unavailable.
 
 ### Step 11 — Verification
 
 * Verify that generated answers are supported by retrieved evidence.
+
 * Check citations.
+
 * Validate confidence scores.
 
 ### Step 12 — Hallucination Detection
@@ -269,8 +279,11 @@ This provides significantly better recall than using semantic search alone.
 Detect potential hallucinations using:
 
 * confidence thresholds
+
 * citation validation
+
 * context availability
+
 * answer grounding
 
 ### Step 13 — Confidence Retry
@@ -278,8 +291,11 @@ Detect potential hallucinations using:
 When confidence falls below the configured threshold:
 
 * rewrite the query
+
 * perform retrieval again
+
 * regenerate the answer
+
 * repeat until the retry limit is reached
 
 ### Step 14 — Safe Response
@@ -321,18 +337,31 @@ All agents communicate through a shared **`RAGState`** object.
 The workflow state contains information such as:
 
 * User query
+
 * Uploaded file paths
+
 * Parsed documents
+
 * Metadata
+
 * Chunked text
+
 * Retrieved chunks
+
 * Generated answer
+
 * Citations
+
 * Sources
+
 * Confidence score
+
 * Verification results
+
 * Guardrail warnings
+
 * Retry count
+
 * Workflow events
 
 Using a shared state object allows every agent to contribute information without tightly coupling components together, following a LangGraph-inspired architecture.
@@ -346,35 +375,25 @@ Unlike basic RAG systems that rely only on vector similarity, this project fuses
 ---
 
 ## Retrieval Architecture
+
 ```mermaid
 flowchart LR
-
 A[User Query]
-
 B[Dense Retrieval]
-
 C[BM25 Retrieval]
-
 D[Reciprocal Rank Fusion]
-
 E[Reranking]
-
 F[Top Context]
-
 G[Answer Generator]
-
 A --> B
 A --> C
-
 B --> D
 C --> D
-
 D --> E
-
 E --> F
-
 F --> G
 ```
+
 ---
 
 ## Dense Semantic Retrieval
@@ -384,8 +403,11 @@ Semantic retrieval converts the user query into an embedding and searches the ve
 ### Advantages
 
 * Understands meaning instead of exact wording
+
 * Handles synonyms
+
 * Supports natural language questions
+
 * Finds relevant context even when wording differs
 
 Example:
@@ -415,10 +437,15 @@ Unlike embeddings, BM25 performs exact keyword matching.
 ### Advantages
 
 * Excellent for identifiers
+
 * Product names
+
 * Policy numbers
+
 * Regulatory clauses
+
 * Financial terminology
+
 * Acronyms
 
 Example:
@@ -440,8 +467,11 @@ RRF assigns higher scores to chunks that consistently rank well across multiple 
 ### Why use RRF?
 
 * Better recall
+
 * Better ranking stability
+
 * Reduces missed documents
+
 * Improves answer quality
 
 Rather than depending on a single retrieval strategy, RRF leverages the strengths of both.
@@ -457,8 +487,11 @@ Instead of returning the first retrieved chunk, the system selects the most rele
 Benefits include:
 
 * Improved precision
+
 * Better context quality
+
 * Reduced irrelevant chunks
+
 * Lower hallucination risk
 
 ---
@@ -486,12 +519,16 @@ A purely keyword-based system struggles with natural language.
 Hybrid Retrieval combines both approaches to provide:
 
 * Higher recall
-* Better precision
-* Improved grounding
-* Stronger evidence selection
-* Lower hallucination rates
-* More reliable answers for financial and regulatory documents
 
+* Better precision
+
+* Improved grounding
+
+* Stronger evidence selection
+
+* Lower hallucination rates
+
+* More reliable answers for financial and regulatory documents
 
 # 🛡️ Guardrails & Safety
 
@@ -508,9 +545,13 @@ Before executing the retrieval workflow, every incoming query passes through the
 The Guardrail Agent performs:
 
 * Query validation
+
 * Empty query detection
+
 * Unsupported request detection
+
 * Basic safety filtering
+
 * Workflow initialization checks
 
 If a query fails validation, the workflow terminates gracefully with an appropriate response instead of continuing through unnecessary retrieval steps.
@@ -524,9 +565,13 @@ After answer generation, the response passes through an additional layer of vali
 The response is checked for:
 
 * Missing evidence
+
 * Missing citations
+
 * Empty responses
+
 * Unsupported claims
+
 * Low-confidence answers
 
 Only responses that satisfy the configured quality criteria are returned to the user.
@@ -538,11 +583,17 @@ Only responses that satisfy the configured quality criteria are returned to the 
 The final response is formatted using the **Safe Response Formatter**, which produces a consistent response structure containing:
 
 * Answer
+
 * Confidence score
+
 * Sources
+
 * Citations
+
 * Verification status
+
 * Workflow events
+
 * Guardrail warnings
 
 This makes the API predictable and easier to integrate into downstream applications.
@@ -561,21 +612,13 @@ Every generated response is evaluated to determine whether it is actually suppor
 
 ```mermaid
 flowchart LR
-
 A[Generated Answer]
-
 B[Verification Agent]
-
 C[Citation Validation]
-
 D[Grounding Check]
-
 E[Confidence Evaluation]
-
 F[Hallucination Checker]
-
 G[Safe Response]
-
 A --> B
 B --> C
 C --> D
@@ -591,9 +634,13 @@ F --> G
 The Verification Agent evaluates whether:
 
 * An answer exists
+
 * Supporting context exists
+
 * Citations are available
+
 * Confidence exceeds the configured threshold
+
 * The response is grounded in retrieved evidence
 
 The verification result becomes part of the shared workflow state and is available to downstream components.
@@ -607,16 +654,23 @@ The Hallucination Checker analyzes generated responses for signs of unsupported 
 Signals include:
 
 * Missing retrieved context
+
 * Missing citations
+
 * Low confidence
+
 * Unsupported statements
+
 * Empty evidence
 
 If hallucination risk is detected, the workflow can:
 
 * Trigger query rewriting
+
 * Retry retrieval
+
 * Regenerate the answer
+
 * Return a safe fallback response
 
 instead of presenting unsupported information to the user.
@@ -628,9 +682,13 @@ instead of presenting unsupported information to the user.
 When verification determines that confidence falls below the configured threshold:
 
 1. The original query is rewritten.
+
 2. Retrieval is executed again.
+
 3. New context is evaluated.
+
 4. A new answer is generated.
+
 5. Verification is repeated.
 
 This retry mechanism increases the likelihood of producing grounded, evidence-backed responses while reducing hallucinations.
@@ -644,9 +702,13 @@ Many traditional Retrieval-Augmented Generation (RAG) systems generate responses
 Orchestrix Veritas introduces additional validation layers to ensure that responses are:
 
 * Grounded
+
 * Explainable
+
 * Verifiable
+
 * Supported by retrieved evidence
+
 * Safer for enterprise document intelligence applications
 
 These verification and guardrail mechanisms help improve response reliability while reducing the risk of hallucinated or unsupported answers.
@@ -670,8 +732,7 @@ Before running Orchestrix Veritas, ensure the following software is installed:
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/<your-github-username>/orchestrix-veritas.git
-
+git clone https://github.com/madhukargoli1992G/orchestrix-veritas.git
 cd orchestrix-veritas
 ```
 
@@ -679,19 +740,17 @@ cd orchestrix-veritas
 
 ## Create a Virtual Environment
 
-### Windows
+### Windows (PowerShell)
 
-```bash
+```powershell
 python -m venv .myenv
-
-.myenv\Scripts\activate
+.\.myenv\Scripts\Activate.ps1
 ```
 
 ### macOS / Linux
 
 ```bash
 python3 -m venv .myenv
-
 source .myenv/bin/activate
 ```
 
@@ -701,7 +760,6 @@ source .myenv/bin/activate
 
 ```bash
 pip install --upgrade pip
-
 pip install -r requirements.txt
 ```
 
@@ -712,7 +770,8 @@ pip install -r requirements.txt
 Copy the example configuration file:
 
 ```bash
-cp .env.example .env
+cp .env.example .env  # macOS/Linux
+# Windows PowerShell: Copy-Item .env.example .env
 ```
 
 Update the values if required.
@@ -722,17 +781,17 @@ Example:
 ```ini
 OLLAMA_URL=http://localhost:11434
 OLLAMA_MODEL=qwen2.5:3b
-
 VECTOR_DB=qdrant
-
 COLLECTION_NAME=lodestar_veritas
 ```
+
+> **Compatibility note:** The Qdrant collection identifier retains the old `lodestar_veritas` name so existing stored vectors remain accessible. Renaming the project does not migrate Qdrant data.
 
 ---
 
 # 🐳 Running with Docker
 
-Build the project:
+Build and start the configured API service (Docker engine required):
 
 ```bash
 docker compose up --build
@@ -759,6 +818,12 @@ http://localhost:8000/health
 ---
 
 # 💻 Running Locally
+
+Start the Streamlit frontend:
+
+```powershell
+python -m streamlit run frontend/app.py
+```
 
 Start the FastAPI server:
 
@@ -877,33 +942,24 @@ python -m orchestrix_veritas.cli
 Example:
 
 ```text
-========================================================
+\========================================================
             Orchestrix Veritas - Agentic RAG CLI
-========================================================
-
+\========================================================
 Ask a question:
-
 > What increased in 2024?
-
 Answer
-
 Revenue increased by 25% in 2024.
-
 Confidence
-
 0.95
-
 Verification
-
 Passed
-
 Workflow Events
-
 • Guardrail Agent
 • Retrieval Agent
 • Verification Agent
 • Safe Response Formatter
 ```
+
 # 🧪 Testing & Project Quality
 
 Orchestrix Veritas follows a test-driven, production-oriented development approach.
@@ -923,12 +979,9 @@ pytest
 Example output:
 
 ```text
-============================= test session starts =============================
-
-90+ tests collected
-
-90+ passed
-
+\============================= test session starts =============================
+92 tests collected
+92 passed
 0 failed
 ```
 
@@ -941,12 +994,19 @@ The automated test suite validates:
 ### Agent Layer
 
 * Guardrail Agent
+
 * Query Rewrite Agent
+
 * Retrieval Router Agent
+
 * Retrieval Agent
+
 * Context Evaluator Agent
+
 * Answer Generator Agent
+
 * Verification Agent
+
 * Confidence Retry Agent
 
 ---
@@ -954,9 +1014,13 @@ The automated test suite validates:
 ### Retrieval Pipeline
 
 * Dense Retrieval
+
 * BM25 Retrieval
+
 * Hybrid Retrieval
+
 * Reciprocal Rank Fusion (RRF)
+
 * Reranking
 
 ---
@@ -964,8 +1028,11 @@ The automated test suite validates:
 ### API Layer
 
 * Root endpoint
+
 * Health endpoint
+
 * Version endpoint
+
 * Ask endpoint
 
 ---
@@ -973,9 +1040,13 @@ The automated test suite validates:
 ### Workflow
 
 * LangGraph-style workflow execution
+
 * Shared workflow state
+
 * Retry mechanism
+
 * Context evaluation
+
 * Verification pipeline
 
 ---
@@ -983,8 +1054,11 @@ The automated test suite validates:
 ### Utilities
 
 * Configuration
+
 * Logging
+
 * Citation formatting
+
 * Safe response formatting
 
 ---
@@ -1026,14 +1100,23 @@ Orchestrix Veritas was designed using software engineering principles commonly a
 ### Design Goals
 
 * Modular architecture
+
 * Single-responsibility agents
+
 * Shared workflow state
+
 * Explainable retrieval
+
 * Grounded answer generation
+
 * Configuration-driven deployment
+
 * Local-first LLM support
+
 * Docker deployment
+
 * Automated testing
+
 * Easy extensibility
 
 The architecture allows individual components to evolve independently while maintaining a clean and maintainable workflow.
@@ -1047,18 +1130,31 @@ The architecture allows individual components to evolve independently while main
 Completed features:
 
 * Agentic RAG workflow
+
 * Multi-format document ingestion
+
 * Hybrid retrieval
+
 * LangGraph-style orchestration
+
 * Query rewriting
+
 * Retrieval routing
+
 * Context evaluation
+
 * Verification pipeline
+
 * Hallucination detection
+
 * Safety guardrails
+
 * FastAPI
+
 * CLI
+
 * Docker support
+
 * Automated testing
 
 ---
@@ -1068,10 +1164,15 @@ Completed features:
 Planned improvements:
 
 * Streaming responses
+
 * Authentication
+
 * Enhanced observability
+
 * Better retrieval metrics
+
 * Performance optimizations
+
 * Improved reranking strategies
 
 ---
@@ -1081,17 +1182,29 @@ Planned improvements:
 Future enterprise enhancements:
 
 * Native LangGraph execution
+
 * Multi-agent planner
+
 * Redis semantic caching
+
 * Qdrant Cloud deployment
+
 * OCR for scanned documents
+
 * Advanced table understanding
+
 * Image reasoning
+
 * SQL Agent
+
 * Web Search Agent
+
 * Memory-enabled conversations
+
 * LangSmith / OpenTelemetry tracing
+
 * Kubernetes deployment
+
 * CI/CD pipeline
 
 ---
@@ -1103,9 +1216,13 @@ Contributions, bug reports, feature requests, and suggestions are welcome.
 If you would like to contribute:
 
 1. Fork the repository.
+
 2. Create a feature branch.
+
 3. Implement your changes.
+
 4. Add or update tests.
+
 5. Submit a Pull Request.
 
 ---

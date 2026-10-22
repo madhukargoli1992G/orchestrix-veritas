@@ -10,8 +10,9 @@ API_VERSION = "1.0.0"
 app = FastAPI(
     title="Orchestrix Veritas API",
     description=(
-        "Agentic Multimodal RAG platform for financial and "
-        "regulatory documents."
+    "Advanced Multimodal Agentic RAG Platform for "
+    "document understanding, hybrid retrieval, "
+    "agent-orchestrated reasoning, and answer verification."
     ),
     version=API_VERSION,
 )

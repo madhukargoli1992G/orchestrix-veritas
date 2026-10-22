@@ -1,6 +1,12 @@
+
+name: orchestrix-veritas
+
 services:
   orchestrix-veritas-api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: orchestrix-veritas-api:latest
     container_name: orchestrix-veritas-api
     ports:
       - "8000:8000"
